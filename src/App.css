@@ -1,5 +1,5 @@
-#login {
-  max-width: 35rem;
+.form {
+  max-width: 35rem !important;
 }
 
 a {
