@@ -10,6 +10,8 @@ function FormUsuario() {
     // Variaveis do Back-end
     let tipoInstituicao = "naoValidadora"
 
+    //******************************************* */
+
     return (
         <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <form method="POST" className="container forms shadow mt-3 form">
