@@ -5,3 +5,101 @@
 a {
   text-decoration: none !important;
 }
+
+:root {
+
+  /* Colors */
+  --body-background-color: #F0F2F5;
+  --nav-background-color: #052C65;
+  --btn-background-color: #5373AB;
+  --title-background-color: #00264B;
+  --form-background-color: #FFFFFF;
+
+  --form-padding: 20px;
+  --form-margin: 20px 0;
+  --form-box-shadow: 0 0 2px;
+  --form-border-radius: 10px;
+}
+
+body {
+  background-color: var(--body-background-color);
+}
+
+.search {
+  background-color: var(--title-background-color);
+  padding: 100px;
+}
+
+.search-2 {
+  background-color: var(--title-background-color);
+  padding: 30px;
+}
+
+.title-1 {
+  text-align: center;
+  color: var(--body-background-color);
+  padding-bottom: 5px;
+}
+
+.forms {
+  background-color: var(--form-background-color);
+  padding: var(--form-padding);
+  margin: var(--form-margin);
+  border-radius: var(--form-border-radius);
+}
+
+.btn-1 {
+  background-color: var(--btn-background-color);
+}
+
+.btn-2 {
+  background-color: var(--body-background-color);
+  color: black;
+}
+
+.title-2 {
+  color: var(--title-background-color);
+  border-bottom: 1px solid var(--body-background-color);
+  padding-bottom: 5px;
+}
+
+.nav-1 {
+  background-color: var(--nav-background-color);
+}
+
+.nav-2 {
+  background-color: var(--title-background-color);
+}
+
+.dashboard {
+  background-color: var(--title-background-color);
+}
+
+.menu a:hover {
+  background-color: var(--btn-background-color);
+  text-decoration: none;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+@media (max-width:768px) {
+  .search {
+    padding: 20px;
+  }
+
+  #logo {
+    margin-bottom: 30px;
+  }
+}
+
+.errorMessage {
+  display: block;
+  color: red;
+}
+
+.link {
+  color: black;
+}
