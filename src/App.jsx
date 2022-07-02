@@ -1,18 +1,21 @@
 import './App.css'
-import FomrUsuario from './components/FomrUsuario'
-import LoginForm from './components/LoginForm'
-import FormInstituicao from './components/FormInstituicao'
-import FormCurso from './components/FormCurso'
+import Login from './pages/Login'
+import CadastroUsuario  from './pages/CadastroUsuario'
+import CadastroCurso  from './pages/CadastroCurso'
+import CadastroInstituicao from './pages/CadastroInstituicao'
+import {BrowserRouter,Routes,Route} from "react-router-dom";
 
 function App() {
 
   return (
-    <div>
-      {/* <LoginForm /> */}
-      {/* <FomrUsuario /> */}
-      {/* <FormInstituicao /> */}
-      <FormCurso />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="cadastrousuario" element={<CadastroUsuario />} />
+        <Route path="cadastrocurso" element={<CadastroCurso />} />
+        <Route path="cadastroinstituicao" element={<CadastroInstituicao />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
