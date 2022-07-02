@@ -2,6 +2,11 @@
   max-width: 35rem !important;
 }
 
+#main {
+  margin-left: 17%;
+  max-width: 83%;
+}
+
 a {
   text-decoration: none !important;
 }
@@ -9,97 +14,97 @@ a {
 :root {
 
   /* Colors */
-  --body-background-color: #F0F2F5;
-  --nav-background-color: #052C65;
-  --btn-background-color: #5373AB;
-  --title-background-color: #00264B;
-  --form-background-color: #FFFFFF;
+  --body-background-color: #F0F2F5 !important;
+  --nav-background-color: #052C65 !important;
+  --btn-background-color: #5373AB !important;
+  --title-background-color: #00264B !important;
+  --form-background-color: #FFFFFF !important;
 
-  --form-padding: 20px;
-  --form-margin: 20px 0;
-  --form-box-shadow: 0 0 2px;
-  --form-border-radius: 10px;
+  --form-padding: 20px !important;
+  --form-margin: auto !important;
+  --form-box-shadow: 0 0 2px !important;
+  --form-border-radius: 10px !important;
 }
 
 body {
-  background-color: var(--body-background-color);
+  background-color: var(--body-background-color) !important;
 }
 
 .search {
-  background-color: var(--title-background-color);
-  padding: 100px;
+  background-color: var(--title-background-color) !important;
+  padding: 100px !important;
 }
 
 .search-2 {
-  background-color: var(--title-background-color);
-  padding: 30px;
+  background-color: var(--title-background-color) !important;
+  padding: 30px !important;
 }
 
 .title-1 {
-  text-align: center;
-  color: var(--body-background-color);
-  padding-bottom: 5px;
+  text-align: center !important;
+  color: var(--body-background-color) !important;
+  padding-bottom: 5px !important;
 }
 
 .forms {
-  background-color: var(--form-background-color);
-  padding: var(--form-padding);
-  margin: var(--form-margin);
-  border-radius: var(--form-border-radius);
+  background-color: var(--form-background-color) !important;
+  padding: var(--form-padding) !important;
+  margin: var(--form-margin) !important;
+  border-radius: var(--form-border-radius) !important;
 }
 
 .btn-1 {
-  background-color: var(--btn-background-color);
+  background-color: var(--btn-background-color) !important;
 }
 
 .btn-2 {
-  background-color: var(--body-background-color);
-  color: black;
+  background-color: var(--body-background-color) !important;
+  color: black !important;
 }
 
 .title-2 {
-  color: var(--title-background-color);
-  border-bottom: 1px solid var(--body-background-color);
-  padding-bottom: 5px;
+  color: var(--title-background-color) !important;
+  border-bottom: 1px solid var(--body-background-color) !important;
+  padding-bottom: 5px !important;
 }
 
 .nav-1 {
-  background-color: var(--nav-background-color);
+  background-color: var(--nav-background-color) !important;
 }
 
 .nav-2 {
-  background-color: var(--title-background-color);
+  background-color: var(--title-background-color) !important;
 }
 
 .dashboard {
-  background-color: var(--title-background-color);
+  background-color: var(--title-background-color) !important;
 }
 
 .menu a:hover {
-  background-color: var(--btn-background-color);
-  text-decoration: none;
+  background-color: var(--btn-background-color) !important;
+  text-decoration: none !important;
 }
 
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 @media (max-width:768px) {
   .search {
-    padding: 20px;
+    padding: 20px !important;
   }
 
   #logo {
-    margin-bottom: 30px;
+    margin-bottom: 30px !important;
   }
 }
 
 .errorMessage {
-  display: block;
-  color: red;
+  display: block !important;
+  color: red !important;
 }
 
 .link {
-  color: black;
+  color: black !important;
 }
