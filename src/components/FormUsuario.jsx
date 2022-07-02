@@ -8,7 +8,7 @@ function FormUsuario() {
     }
 
     // Variaveis do Back-end
-    let tipoInstituicao = "naoValidadora"
+    let tipoInstituicao = "validadora"
 
     //******************************************* */
 
@@ -22,12 +22,15 @@ function FormUsuario() {
                         <option value="1">Funcionário</option>
                         <option value="2">Dirigente</option>
 
-                        {tipoInstituicao === "naoValidadora" ? (<option value="3">Diretor</option>) : (
-                            <>
-                                <option value="3">Superitendente</option>
-                                <option value="4">Coordenador CARE</option>
-                            </>
-                        )}
+                        {tipoInstituicao === "validadora" ?
+                            (
+                                <>
+                                    <option value="3">Superitendente</option>
+                                    <option value="4">Coordenador CARE</option>
+                                </>
+                            ) :
+                            (<option value="3">Diretor</option>)
+                        }
 
                     </select>
                 </div>
