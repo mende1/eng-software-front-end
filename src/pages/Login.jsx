@@ -54,7 +54,7 @@ function Login() {
         <p className="h3 title-2 mt-3">Login</p>
         <div className="mb-3">
           <label htmlFor="username" className="form-label">
-            Email
+            Username
           </label>
           <input
             type="text"

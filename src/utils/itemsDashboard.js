@@ -1,5 +1,10 @@
 export const dashboardItems = [
   {
+    nome: "DASHBOARD",
+    link: "dashboard",
+    permissoes: ["todos"],
+  },
+  {
     nome: "Usuários",
     link: "usuarios",
     icon: "bi-person",

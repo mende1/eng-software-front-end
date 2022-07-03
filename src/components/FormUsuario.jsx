@@ -1,16 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getRoleOfUser } from "../services/auth";
 
 function FormUsuario() {
   const [tipo, setTipo] = useState("1");
+  const [role, setRole] = useState("");
 
   function handleChange(event) {
     setTipo(event.target.value);
   }
 
-  // Variaveis do Back-end
-  let tipoInstituicao = "validadora";
+  useEffect(() => {
+    const fetchRole = async () => {
+      const role = await getRoleOfUser();
+      setRole(role);
+    };
 
-  //******************************************* */
+    fetchRole();
+  }, []);
 
   return (
     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -31,14 +37,13 @@ function FormUsuario() {
             <option value="1">Funcionário</option>
             <option value="2">Dirigente</option>
 
-            {tipoInstituicao === "validadora" ? (
+            {role === "superintendente" && (
               <>
                 <option value="3">Superitendente</option>
                 <option value="4">Coordenador CARE</option>
               </>
-            ) : (
-              <option value="3">Diretor</option>
             )}
+            {role === "diretor" && <option value="3">Diretor</option>}
           </select>
         </div>
         <div className="mb-3">
