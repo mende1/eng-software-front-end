@@ -5,6 +5,7 @@ import CadastroCurso  from './pages/CadastroCurso'
 import CadastroInstituicao from './pages/CadastroInstituicao'
 import Usuarios from './pages/Usuarios'
 import {BrowserRouter,Routes,Route} from "react-router-dom";
+import { Logout } from './pages/Logout'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="cadastrocurso" element={<CadastroCurso />} />
         <Route path="cadastroinstituicao" element={<CadastroInstituicao />} />
         <Route path="usuarios" element={<Usuarios />} />
+        <Route path="logout" element={<Logout />} />
       </Routes>
     </BrowserRouter>
   )
