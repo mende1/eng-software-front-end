@@ -2,6 +2,18 @@
   max-width: 35rem !important;
 }
 
+.selecionado {
+  background : rgba(255, 255, 255, 0.2);
+}
+
+.verde {
+  color: #59836A;
+}
+
+.vermelho {
+  color:red;
+}
+
 #main {
   margin-left: 17%;
   max-width: 83%;

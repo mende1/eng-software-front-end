@@ -16,7 +16,7 @@ function Table(props) {
             )}
 
             <td>
-                <i className="bi bi-pencil-square"></i> <i className="bi bi-x-lg"></i>
+                {props.actions}
             </td>
         </tr>
     )

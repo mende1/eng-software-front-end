@@ -35,6 +35,8 @@ function Usuarios() {
     
     // ********************************************************************************************
 
+    const actions = (<div><i className="bi bi-pencil-square verde"></i> <i className="bi bi-x-lg vermelho"></i></div>)
+
     return (
         <div className="container-fluid">
             <div className="row">
@@ -44,15 +46,15 @@ function Usuarios() {
 
                     {tipoInstituicao === "validadora" ?
                         (<>
-                            <Table rows={funcionarios} tableName="Funcionários" />
-                            <Table rows={dirigentes} tableName="Dirigentes" />
-                            <Table rows={superitendentes} tableName="Superitendentes" />
-                            <Table rows={coordenadoresCare} tableName="Coordenadores Care" />
+                            <Table rows={funcionarios} tableName="Funcionários" actions={actions}/>
+                            <Table rows={dirigentes} tableName="Dirigentes" actions={actions}/>
+                            <Table rows={superitendentes} tableName="Superitendentes" actions={actions}/>
+                            <Table rows={coordenadoresCare} tableName="Coordenadores Care" actions={actions}/>
                         </>) :
                         (<>
-                            <Table rows={funcionarios} tableName="Funcionários" />
-                            <Table rows={dirigentes} tableName="Dirigentes" />
-                            <Table rows={diretores} tableName="Diretores" />
+                            <Table rows={funcionarios} tableName="Funcionários" actions={actions}/>
+                            <Table rows={dirigentes} tableName="Dirigentes" actions={actions}/>
+                            <Table rows={diretores} tableName="Diretores" actions={actions}/>
                         </>)
                     }
                 </div>

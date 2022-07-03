@@ -15,9 +15,11 @@ function Dashboard() {
         { "nome": "Logout", "link": "logout", "icon": "bi-power" },
     ]
 
+    const page = window.location.pathname.split("/").at(-1)
+
     const renderItens = itens.map((item, index) =>
         <div key={index}>
-            <li className='nav-item'>
+            <li className={`nav-item ${item.link == page ? 'selecionado' : ''}`}>
                 <Link to={`/${item.link}`} className="nav-link p-3">
                     <i className={`bi ${item.icon}`}></i> {item.nome}
                 </Link>
