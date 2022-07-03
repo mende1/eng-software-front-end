@@ -1,6 +1,8 @@
 import '../styles/Dashboard.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { Link } from "react-router-dom";
+import { useEffect } from 'react';
+import { getRoleOfUser } from '../services/auth';
 
 function Dashboard() {
     const itens = [
@@ -14,6 +16,10 @@ function Dashboard() {
         { "nome": "Log Superitendente", "link": "logsuperitendente", "icon": "bi-card-text" },
         { "nome": "Logout", "link": "logout", "icon": "bi-power" },
     ]
+
+    useEffect(() => {
+        getRoleOfUser();
+    },[])
 
     const renderItens = itens.map((item, index) =>
         <div key={index}>
@@ -29,7 +35,7 @@ function Dashboard() {
     return (
         <div>
             <header className="navbar navbar-dark sticky-top flex-md-nowrap p-0">
-                <Link className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" to="/">DASHBOARD</Link>
+                <Link className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" to="/usuarios">DASHBOARD</Link>
                 <button className="navbar-toggler position-absolute d-md-none collapsed btn-1" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

@@ -1,7 +1,15 @@
+import api from "./api";
+
 export const TOKEN_KEY = "@mata62-Token";
 
 export function isAuthenticated () { 
-  return localStorage.getItem(TOKEN_KEY) !== null
+  return localStorage.getItem(TOKEN_KEY) !== null;
+}
+
+export async function getRoleOfUser () {
+  const response = await api.get("/auth/profile");
+
+  console.log(response);
 }
 
 export function getToken() { 

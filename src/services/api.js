@@ -2,7 +2,11 @@ import axios from "axios";
 import { getToken } from "./auth";
 
 const api = axios.create({
-  baseURL: "https://mata62-backend.herokuapp.com"
+  baseURL: "http://localhost:5000",
+  headers: {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+  }
 })
 
 api.interceptors.request.use(async config => {
