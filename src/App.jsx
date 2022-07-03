@@ -15,6 +15,9 @@ import SolicitarValidacao from './pages/SolicitarValidacao'
 import EditarCurso from './pages/EditarCurso'
 import EditarUsuario from './pages/EditarUsuario'
 import EditarInstituicao from './pages/EditarInstituicao'
+import RecuperarSenha from './pages/RecuperarSenha'
+import VerificarIdentidade from './pages/VerificarIdentidade'
+import AlterarSenha from './pages/AlterarSenha'
 
 function App() {
 
@@ -36,6 +39,9 @@ function App() {
         <Route path="editarcurso" element={<EditarCurso />} />
         <Route path="editarusuario" element={<EditarUsuario />} />
         <Route path="editarinstituicao" element={<EditarInstituicao />} />
+        <Route path="recuperarsenha" element={<RecuperarSenha />} />
+        <Route path="verificaridentidade" element={<VerificarIdentidade />} />
+        <Route path="alterarsenha" element={<AlterarSenha />} />
       </Routes>
     </BrowserRouter>
   )
