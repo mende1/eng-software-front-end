@@ -66,7 +66,12 @@ function DashboardComponent() {
   const [role, setRole] = useState("");
 
   useEffect(() => {
-    setRole(getRoleOfUser());
+    const fetchRole = async () => {
+      const role = await getRoleOfUser();
+      setRole(role);
+    };
+
+    fetchRole();
   }, []);
 
   const renderItens = itens.map((item, index) => {
@@ -83,12 +88,42 @@ function DashboardComponent() {
     );
   });
 
+  if (!role) {
+    return (
+      <div>
+        <header className="navbar navbar-dark sticky-top flex-md-nowrap p-0">
+          <Link
+            className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"
+            to="/dashboard"
+          >
+            DASHBOARD
+          </Link>
+          <button
+            className="navbar-toggler position-absolute d-md-none collapsed btn-1"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu"
+            aria-controls="sidebarMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+        </header>
+        <nav
+          id="sidebarMenu"
+          className="col-md-3 col-lg-2 d-md-block sidebar collapse  dashboard"
+        ></nav>
+      </div>
+    );
+  }
+
   return (
     <div>
       <header className="navbar navbar-dark sticky-top flex-md-nowrap p-0">
         <Link
           className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"
-          to="/usuarios"
+          to="/dashboard"
         >
           DASHBOARD
         </Link>
