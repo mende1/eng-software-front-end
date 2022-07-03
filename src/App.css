@@ -12,13 +12,12 @@ a {
 }
 
 :root {
-
   /* Colors */
-  --body-background-color: #F0F2F5 !important;
-  --nav-background-color: #052C65 !important;
-  --btn-background-color: #5373AB !important;
-  --title-background-color: #00264B !important;
-  --form-background-color: #FFFFFF !important;
+  --body-background-color: #f0f2f5 !important;
+  --nav-background-color: #052c65 !important;
+  --btn-background-color: #5373ab !important;
+  --title-background-color: #00264b !important;
+  --form-background-color: #ffffff !important;
 
   --form-padding: 20px !important;
   --form-margin: auto !important;
@@ -85,12 +84,11 @@ body {
   text-decoration: none !important;
 }
 
-
 a {
   text-decoration: none !important;
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .search {
     padding: 20px !important;
   }
