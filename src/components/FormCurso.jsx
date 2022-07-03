@@ -1,7 +1,7 @@
-function FormCurso() {
+function FormCurso(props) {
     return (
         <form method="POST" className="container forms shadow mt-3 form">
-            <p className="h3 title-2">Cadastro de Curso</p>
+            <p className="h3 title-2">{props.titulo}</p>
             <div className="mb-3">
                 <label htmlFor="name" className="form-label">Nome</label>
                 <input type="text" className="form-control" id="name" name="name" placeholder="insira o nome" />
@@ -26,7 +26,7 @@ function FormCurso() {
                 <label htmlFor="observacao" className="form-label">Observação</label>
                 <input type="text" className="form-control" id="observacao" name="observacao" placeholder="insira a observação" />
             </div>
-            <button type="submit" className="btn-1 btn btn-primary mb-3">Cadastrar</button>
+            <button type="submit" className="btn-1 btn btn-primary mb-3">{props.nomeBotao}</button>
         </form >
     )
 }

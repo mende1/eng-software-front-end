@@ -10,8 +10,10 @@ function Dashboard() {
         { "nome": "Cadastrar Curso", "link": "cadastrocurso", "icon": "bi-book" },
         { "nome": "Intituições", "link": "instituicoes", "icon": "bi-building" },
         { "nome": "Cadastrar Instituição", "link": "cadastroinstituicao", "icon": "bi-building" },
+        { "nome": "Solicitar Validação", "link": "solicitarvalidacao", "icon": "bi-journal-arrow-up" },
         { "nome": "Validar Diploma", "link": "validarDiploma", "icon": "bi-journal-bookmark-fill" },
         { "nome": "Log Superitendente", "link": "logsuperitendente", "icon": "bi-card-text" },
+        { "nome": "Auditoria", "link": "auditoria", "icon": "bi-person-workspace" },
         { "nome": "Logout", "link": "logout", "icon": "bi-power" },
     ]
 

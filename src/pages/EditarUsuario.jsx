@@ -1,15 +1,15 @@
-import FormCurso from '../components/FormCurso'
+import FormUsuario from '../components/FormUsuario'
 import Dashboard from '../components/Dashboard'
 
-function CadastroCurso() {
+function EditarUsuario() {
     return (
         <div className="container-fluid">
             <div className="row">
                 <Dashboard />
-                <FormCurso titulo="Cadastro de Curso" nomeBotao="Cadastrar"/>
+                <FormUsuario titulo="Editar Usuário" nomeBotao="Editar"/>
             </div>
         </div>
     )
 }
 
-export default CadastroCurso
+export default EditarUsuario

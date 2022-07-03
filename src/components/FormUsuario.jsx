@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function FormUsuario() {
+function FormUsuario(props) {
     const [tipo, setTipo] = useState("1")
 
     function handleChange(event) {
@@ -15,7 +15,7 @@ function FormUsuario() {
     return (
         <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <form method="POST" className="container forms shadow mt-3 form">
-                <p className="h3 title-2">Cadastro de Usuário</p>
+                <p className="h3 title-2">{props.titulo}</p>
                 <div className="mb-3">
                     <label htmlFor="user-type" className="form-label">Tipo de Usuário</label>
                     <select onChange={handleChange} className="form-select" aria-label="Tipo de Usuário" id="user-type" name="user-type" value={tipo}>
@@ -56,7 +56,7 @@ function FormUsuario() {
                     <label htmlFor="cpf" className="form-label">CPF</label>
                     <input type="text" className="form-control" id="cpf" name="cpf" placeholder="insira o cpf" />
                 </div>
-                <button type="submit" className="btn-1 btn btn-primary mb-3">Cadastrar</button>
+                <button type="submit" className="btn-1 btn btn-primary mb-3">{props.nomeBotao}</button>
             </form >
         </main>
     )

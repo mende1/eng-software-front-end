@@ -6,7 +6,7 @@ function CadastroUsuario() {
         <div className="container-fluid">
             <div className="row">
                 <Dashboard />
-                <FormUsuario />
+                <FormUsuario titulo="Cadastro de Usuário" nomeBotao="Cadastrar"/>
             </div>
         </div>
     )

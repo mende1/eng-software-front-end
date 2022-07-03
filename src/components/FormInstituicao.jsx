@@ -1,8 +1,8 @@
-function FormInstituicao() {
+function FormInstituicao(props) {
 
     return (
         <form method="POST" className="container forms shadow mt-3 form">
-            <p className="h3 title-2">Cadastro de Insituição</p>
+            <p className="h3 title-2">{props.titulo}</p>
             <div className="mb-3">
                 <label htmlFor="name" className="form-label">Nome</label>
                 <input type="text" className="form-control" id="name" name="name" placeholder="insira o nome" />
@@ -27,7 +27,7 @@ function FormInstituicao() {
                 <label htmlFor="mantenedora" className="form-label">Mantenedora</label>
                 <input type="text" className="form-control" id="mantenedora" name="mantenedora" placeholder="insira a mantenedora" />
             </div>
-            <button type="submit" className="btn-1 btn btn-primary mb-3">Cadastrar</button>
+            <button type="submit" className="btn-1 btn btn-primary mb-3">{props.nomeBotao}</button>
         </form >
     )
 }

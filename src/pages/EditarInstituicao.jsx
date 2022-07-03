@@ -1,15 +1,15 @@
 import FormInstituicao from '../components/FormInstituicao'
 import Dashboard from '../components/Dashboard'
 
-function CadastroInstituicao() {
+function EditarInstituicao() {
     return (
         <div className="container-fluid">
             <div className="row">
                 <Dashboard />
-                <FormInstituicao titulo="Cadastro de Instituição" nomeBotao="Cadastrar"/>
+                <FormInstituicao titulo="Editar Instituição" nomeBotao="Editar"/>
             </div>
         </div>
     )
 }
 
-export default CadastroInstituicao
+export default EditarInstituicao
