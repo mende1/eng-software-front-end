@@ -1,15 +1,15 @@
-import FormInstituicao from '../components/FormInstituicao'
-import Dashboard from '../components/Dashboard'
+import FormInstituicao from "../components/FormInstituicao";
+import Dashboard from "../components/DashboardComponent";
 
 function CadastroInstituicao() {
-    return (
-        <div className="container-fluid">
-            <div className="row">
-                <Dashboard />
-                <FormInstituicao />
-            </div>
-        </div>
-    )
+  return (
+    <div className="container-fluid">
+      <div className="row">
+        <Dashboard />
+        <FormInstituicao />
+      </div>
+    </div>
+  );
 }
 
-export default CadastroInstituicao
+export default CadastroInstituicao;
