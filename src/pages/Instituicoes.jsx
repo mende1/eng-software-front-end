@@ -33,10 +33,10 @@ function Instituicoes() {
       <div className="row">
         <DashboardComponent />
         <div id="main">
-          <p className="h3 title-2">Instituições</p>
+          <p className="h3 title-2 mt-3">Instituições</p>
           <TableInstituicoes
             rows={instituicoes}
-            tableName="Instituições"
+            tableName=""
             actions={actionsLock}
           />
         </div>

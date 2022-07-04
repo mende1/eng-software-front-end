@@ -30,10 +30,10 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/cadastrousuario" element={<CadastroUsuario />} />
         <Route path="/editarusuario/:id" element={<EditarUsuario />} />
-        <Route path="/cadastrocurso/:id" element={<CadastroCurso />} />
-        <Route path="/editarcurso/:id" element={<EditarCurso />} />
+        <Route path="/cadastrocurso" element={<CadastroCurso />} />
+        <Route path="/editarcurso" element={<EditarCurso />} />
         <Route path="/cadastroinstituicao" element={<CadastroInstituicao />} />
-        <Route path="/editarinstituicao" element={<EditarInstituicao />} />
+        <Route path="/editarinstituicao/:id" element={<EditarInstituicao />} />
         <Route path="/usuarios" element={<Usuarios />} />
         <Route path="/instituicoes" element={<Instituicoes />} />
         <Route path="/cursos" element={<Cursos />} />
