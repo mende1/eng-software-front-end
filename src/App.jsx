@@ -18,6 +18,8 @@ import EditarInstituicao from "./pages/EditarInstituicao";
 import RecuperarSenha from "./pages/RecuperarSenha";
 import VerificarIdentidade from "./pages/VerificarIdentidade";
 import AlterarSenha from "./pages/AlterarSenha";
+import Dashboard from "./pages/Dashboard";
+import { Logout } from "./pages/Logout";
 
 function App() {
   return (
@@ -26,23 +28,23 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="cadastrousuario" element={<CadastroUsuario />} />
-        <Route path="cadastrocurso" element={<CadastroCurso />} />
-        <Route path="cadastroinstituicao" element={<CadastroInstituicao />} />
-        <Route path="usuarios" element={<Usuarios />} />
-        <Route path="instituicoes" element={<Instituicoes />} />
-        <Route path="cursos" element={<Cursos />} />
-        <Route path="validardiploma" element={<ValidarDiploma />} />
-        <Route path="logsuperitendente" element={<LogSuperitendente />} />
-        <Route path="log" element={<Log />} />
-        <Route path="auditoria" element={<Auditoria />} />
-        <Route path="solicitarvalidacao" element={<SolicitarValidacao />} />
-        <Route path="editarcurso" element={<EditarCurso />} />
-        <Route path="editarusuario" element={<EditarUsuario />} />
-        <Route path="editarinstituicao" element={<EditarInstituicao />} />
-        <Route path="recuperarsenha" element={<RecuperarSenha />} />
-        <Route path="verificaridentidade" element={<VerificarIdentidade />} />
-        <Route path="alterarsenha" element={<AlterarSenha />} />
+        <Route path="/cadastrousuario" element={<CadastroUsuario />} />
+        <Route path="/cadastrocurso" element={<CadastroCurso />} />
+        <Route path="/cadastroinstituicao" element={<CadastroInstituicao />} />
+        <Route path="/usuarios" element={<Usuarios />} />
+        <Route path="/instituicoes" element={<Instituicoes />} />
+        <Route path="/cursos" element={<Cursos />} />
+        <Route path="/validardiploma" element={<ValidarDiploma />} />
+        <Route path="/logsuperitendente" element={<LogSuperitendente />} />
+        <Route path="/log" element={<Log />} />
+        <Route path="/auditoria" element={<Auditoria />} />
+        <Route path="/solicitarvalidacao" element={<SolicitarValidacao />} />
+        <Route path="/editarcurso" element={<EditarCurso />} />
+        <Route path="/editarusuario" element={<EditarUsuario />} />
+        <Route path="/editarinstituicao" element={<EditarInstituicao />} />
+        <Route path="/recuperarsenha" element={<RecuperarSenha />} />
+        <Route path="/verificaridentidade" element={<VerificarIdentidade />} />
+        <Route path="/alterarsenha" element={<AlterarSenha />} />
       </Routes>
     </BrowserRouter>
   );
