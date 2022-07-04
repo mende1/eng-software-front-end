@@ -41,12 +41,6 @@ export const dashboardItems = [
     permissoes: ["dirigente"],
   },
   {
-    nome: "Diplomas",
-    link: "validarDiploma",
-    icon: "bi-journal-bookmark-fill",
-    permissoes: ["todos"],
-  },
-  {
     nome: "Validar Diploma",
     link: "validarDiploma",
     icon: "bi-journal-bookmark-fill",
@@ -62,7 +56,7 @@ export const dashboardItems = [
     nome: "Auditoria",
     link: "auditoria",
     icon: "bi-person-workspace",
-    permissoes: ["todos"],
+    permissoes: ["coordenador"],
   },
   { nome: "Logout", link: "logout", icon: "bi-power", permissoes: ["todos"] },
 ];

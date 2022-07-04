@@ -31,7 +31,7 @@ function App() {
         <Route path="/cadastrousuario" element={<CadastroUsuario />} />
         <Route path="/editarusuario/:id" element={<EditarUsuario />} />
         <Route path="/cadastrocurso" element={<CadastroCurso />} />
-        <Route path="/editarcurso" element={<EditarCurso />} />
+        <Route path="/editarcurso/:id" element={<EditarCurso />} />
         <Route path="/cadastroinstituicao" element={<CadastroInstituicao />} />
         <Route path="/editarinstituicao/:id" element={<EditarInstituicao />} />
         <Route path="/usuarios" element={<Usuarios />} />

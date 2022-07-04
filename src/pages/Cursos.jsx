@@ -1,18 +1,20 @@
+import { useEffect, useState } from "react";
 import DashboardComponent from "../components/DashboardComponent";
 import Table from "../components/Table";
+import TableCurso from "../components/TableCurso";
+import api from "../services/api";
 
 function Cursos() {
-  // Variaveis do Back-end
+  const [courses, setCourses] = useState([]);
 
-  const cursos = [
-    { Nome: "Ufba", Grau: "sei lá", "e-Mec": "sei lá" },
-    { Nome: "Ufba", Grau: "sei lá", "e-Mec": "sei lá" },
-    { Nome: "Ufba", Grau: "sei lá", "e-Mec": "sei lá" },
-    { Nome: "Ufba", Grau: "sei lá", "e-Mec": "sei lá" },
-    { Nome: "Ufba", Grau: "sei lá", "e-Mec": "sei lá" },
-  ];
+  useEffect(() => {
+    async function fetchCourses() {
+      const response = await api.get("courses");
+      setCourses(response.data);
+    }
 
-  // ********************************************************************************************
+    fetchCourses();
+  }, []);
 
   const actions = (
     <div>
@@ -27,7 +29,7 @@ function Cursos() {
         <DashboardComponent />
         <div id="main">
           <p className="h3 title-2">Cursos</p>
-          <Table rows={cursos} tableName="" actions={actions} />
+          <TableCurso rows={courses} tableName="" />
         </div>
       </div>
     </div>
