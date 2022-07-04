@@ -1,4 +1,4 @@
-function Table(props) {
+function TableUser(props) {
   if (!props.rows.length) {
     return (
       <>
@@ -9,8 +9,7 @@ function Table(props) {
     );
   }
 
-  const attributes = Object.keys(props.rows[0]);
-  const heads = ["#", ...attributes, "Ações"];
+  const heads = ["#", "Nome", "Email", "CPF", "Ações"];
 
   const renderHeads = heads.map((head, index) => (
     <th key={index} scope="col">
@@ -22,12 +21,13 @@ function Table(props) {
     <tr key={index}>
       <th scope="row">{index}</th>
 
-      {attributes.map((attribute, i) => (
-        <td key={i}>{user[attribute]}</td>
-      ))}
+      <td key={0}>{user["name"]}</td>
+      <td key={1}>{user["email"]}</td>
+      <td key={2}>{user["cpf"]}</td>
 
       <td>
-        <i className="bi bi-pencil-square"></i> <i className="bi bi-x-lg"></i>
+        <i className="bi bi-pencil-square mx-2"></i>
+        <i className="bi bi-x-lg"></i>
       </td>
     </tr>
   ));
@@ -46,4 +46,4 @@ function Table(props) {
   );
 }
 
-export default Table;
+export default TableUser;

@@ -1,118 +1,82 @@
+import { useEffect, useState } from "react";
 import Dashboard from "../components/DashboardComponent";
-import Table from "../components/Table";
+import TableUser from "../components/TableUser";
+import api from "../services/api";
+import { getRoleOfUser } from "../services/auth";
 
 function Usuarios() {
-  // Variaveis do Back-end
+  const [role, setRole] = useState("");
+  const [funcionarios, setFuncionarios] = useState([]);
+  const [coordenadores, setCoordenadores] = useState([]);
+  const [superintendentes, setSuperintendentes] = useState([]);
+  const [diretores, setDiretores] = useState([]);
+  const [dirigentes, setDirigentes] = useState([]);
 
-  let tipoInstituicao = "validadora";
+  useEffect(() => {
+    const fetchRole = async () => {
+      const role = await getRoleOfUser();
+      setRole(role);
+    };
 
-  const funcionarios = [
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-  ];
-  const dirigentes = [
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-  ];
-  const diretores = [
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-  ];
-  const superitendentes = [
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-  ];
-  const coordenadoresCare = [
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-    {
-      Nome: "João",
-      Email: "diegocarapia@hotmail.com",
-      Telefone: "71 3352-1413",
-    },
-  ];
+    fetchRole();
+  }, []);
 
-  // ********************************************************************************************
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const usersResponse = await api.get("users");
+
+      usersResponse.data.forEach((user) => {
+        const role = user.role;
+
+        console.log(role);
+
+        switch (role) {
+          case "funcionario":
+            setFuncionarios((previousState) => [...previousState, user]);
+            break;
+
+          case "coordenador":
+            setCoordenadores((previousState) => [...previousState, user]);
+            break;
+
+          case "superintendente":
+            setSuperintendentes((previousState) => [...previousState, user]);
+            break;
+
+          case "diretor":
+            setDiretores((previousState) => [...previousState, user]);
+            break;
+
+          case "dirigente":
+            setDirigentes((previousState) => [...previousState, user]);
+            break;
+        }
+      });
+    };
+
+    fetchUsers();
+  }, []);
 
   return (
     <div className="container-fluid">
       <div className="row">
         <Dashboard />
         <div id="main">
-          <p className="h3 title-2">Usuários</p>
+          <p className="h3 title-2 mt-3">Usuários</p>
 
-          {tipoInstituicao === "validadora" ? (
+          {role === "diretor" && (
             <>
-              <Table rows={funcionarios} tableName="Funcionários" />
-              <Table rows={dirigentes} tableName="Dirigentes" />
-              <Table rows={superitendentes} tableName="Superitendentes" />
-              <Table rows={coordenadoresCare} tableName="Coordenadores Care" />
+              <TableUser rows={funcionarios} tableName="Funcionários" />
+              <TableUser rows={dirigentes} tableName="Dirigentes" />
+              <TableUser rows={diretores} tableName="Diretores" />
             </>
-          ) : (
+          )}
+          {role === "superintendente" && (
             <>
-              <Table rows={funcionarios} tableName="Funcionários" />
-              <Table rows={dirigentes} tableName="Dirigentes" />
-              <Table rows={diretores} tableName="Diretores" />
+              <TableUser rows={funcionarios} tableName="Funcionários" />
+              <TableUser rows={dirigentes} tableName="Dirigentes" />
+              <TableUser rows={superintendentes} tableName="Superitendentes" />
+              <TableUser rows={coordenadores} tableName="Coordenadores Care" />
             </>
           )}
         </div>
