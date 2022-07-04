@@ -17,12 +17,14 @@ function DashboardComponent() {
     fetchRole();
   }, []);
 
+  const page = window.location.pathname.split("/").at(-1)
+
   const renderItens = dashboardItems.map((item, index) => {
     return (
       (item.permissoes.includes(role) || item.permissoes.includes("todos")) && (
         <div key={index}>
           <li
-            className={`nav-item ${
+            className={`nav-item ${item.link == page ? 'selecionado' : ''} ${
               item.link === "dashboard" && "h4 title-3 pb-4"
             }`}
           >
