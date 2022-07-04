@@ -1,7 +1,88 @@
+import { useState } from "react";
+import api from "../services/api";
+
 function FormInstituicao(props) {
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [MEC, setMEC] = useState("");
+  const [maintainer, setMaintainer] = useState("");
+
+  function handleChangeName(event) {
+    setName(event.target.value);
+  }
+  function handleChangeAddress(event) {
+    setAddress(event.target.value);
+  }
+  function handleChangeCity(event) {
+    setCity(event.target.value);
+  }
+  function handleChangeState(event) {
+    setState(event.target.value);
+  }
+  function handleChangeMEC(event) {
+    setMEC(event.target.value);
+  }
+  function handleChangeMaintainer(event) {
+    setMaintainer(event.target.value);
+  }
+
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    const data = {
+      name,
+      address,
+      city,
+      state,
+      MEC,
+      maintainer,
+    };
+
+    try {
+      const message = props.editar
+        ? "Usuário editado com sucesso."
+        : "Usuário cadastrado com sucesso";
+
+      if (props.editar) {
+        await api.patch(`/institutions/${props.institutionID}`, data);
+      } else {
+        await api.post("/institutions", data);
+      }
+
+      setSuccessMessage(message);
+      clearInputs();
+    } catch (error) {
+      console.log(error);
+      setErrorMessage("Ocorreu um erro, tente novamente.");
+    }
+  }
+
+  function clearInputs() {
+    setName("");
+    setAddress("");
+    setCity("");
+    setState("");
+    setMEC("");
+    setMaintainer("");
+  }
+
   return (
-    <form method="POST" className="container forms shadow mt-3 form">
-      <p className="h3 title-2">{props.titulo}</p>
+    <form
+      method="POST"
+      onSubmit={handleSubmit}
+      className="container forms shadow mt-3 form"
+    >
+      <p className="h3 title-2">
+        {props.editar ? "Edição de Instituição" : "Cadastro de Instituição"}
+      </p>
       <div className="mb-3">
         <label htmlFor="name" className="form-label">
           Nome
@@ -11,6 +92,8 @@ function FormInstituicao(props) {
           className="form-control"
           id="name"
           name="name"
+          value={name}
+          onChange={handleChangeName}
           placeholder="insira o nome"
         />
       </div>
@@ -23,6 +106,8 @@ function FormInstituicao(props) {
           className="form-control"
           id="endereco"
           name="endereco"
+          value={address}
+          onChange={handleChangeAddress}
           placeholder="insira o endereço"
         />
       </div>
@@ -35,6 +120,8 @@ function FormInstituicao(props) {
           className="form-control"
           id="cidade"
           name="cidade"
+          value={city}
+          onChange={handleChangeCity}
           placeholder="insira a cidade"
         />
       </div>
@@ -47,6 +134,8 @@ function FormInstituicao(props) {
           className="form-control"
           id="estado"
           name="estado"
+          value={state}
+          onChange={handleChangeState}
           placeholder="insira o estado"
         />
       </div>
@@ -59,6 +148,8 @@ function FormInstituicao(props) {
           className="form-control"
           id="credenciamento"
           name="credenciamento"
+          value={MEC}
+          onChange={handleChangeMEC}
           placeholder="insira o credenciamento"
         />
       </div>
@@ -71,12 +162,20 @@ function FormInstituicao(props) {
           className="form-control"
           id="mantenedora"
           name="mantenedora"
+          value={maintainer}
+          onChange={handleChangeMaintainer}
           placeholder="insira a mantenedora"
         />
       </div>
       <button type="submit" className="btn-1 btn btn-primary mb-3">
-        {props.nomeBotao}
+        {props.editar ? "Editar" : "Cadastrar"}
       </button>
+      <div className="pb-3 text-danger font-weight-bold">
+        {errorMessage?.length ? errorMessage : ""}
+      </div>
+      <div className="pb-3 text-success font-weight-bold">
+        {successMessage?.length ? successMessage : ""}
+      </div>
     </form>
   );
 }
