@@ -1,38 +1,19 @@
+import { useEffect, useState } from "react";
 import DashboardComponent from "../components/DashboardComponent";
-import Table from "../components/Table";
+import TableInstituicoes from "../components/TableIntituicoes";
+import api from "../services/api";
 
 function Instituicoes() {
-  // Variaveis do Back-end
+  const [instituicoes, setInstituicoes] = useState([]);
 
-  const instituicoes = [
-    {
-      Nome: "Ufba",
-      Credenciamento: "xxxxxxxxxxxxx",
-      Mantenedora: "xxxxxxxxxxxxxx",
-    },
-    {
-      Nome: "Ufba",
-      Credenciamento: "xxxxxxxxxxxxx",
-      Mantenedora: "xxxxxxxxxxxxxx",
-    },
-    {
-      Nome: "Ufba",
-      Credenciamento: "xxxxxxxxxxxxx",
-      Mantenedora: "xxxxxxxxxxxxxx",
-    },
-    {
-      Nome: "Ufba",
-      Credenciamento: "xxxxxxxxxxxxx",
-      Mantenedora: "xxxxxxxxxxxxxx",
-    },
-    {
-      Nome: "Ufba",
-      Credenciamento: "xxxxxxxxxxxxx",
-      Mantenedora: "xxxxxxxxxxxxxx",
-    },
-  ];
+  useEffect(() => {
+    const fetchInstituicoes = async () => {
+      const response = await api.get("institutions");
+      setInstituicoes(response.data);
+    };
 
-  // ********************************************************************************************
+    fetchInstituicoes();
+  }, []);
 
   const actionsLock = (
     <div>
@@ -53,7 +34,11 @@ function Instituicoes() {
         <DashboardComponent />
         <div id="main">
           <p className="h3 title-2">Instituições</p>
-          <Table rows={instituicoes} tableName="" actions={actionsLock} />
+          <TableInstituicoes
+            rows={instituicoes}
+            tableName="Instituições"
+            actions={actionsLock}
+          />
         </div>
       </div>
     </div>
