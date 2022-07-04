@@ -6,7 +6,10 @@ function CadastroInstituicao() {
     <div className="container-fluid">
       <div className="row">
         <Dashboard />
-        <FormInstituicao />
+        <FormInstituicao
+          titulo="Cadastro de Instituição"
+          nomeBotao="Cadastrar"
+        />
       </div>
     </div>
   );

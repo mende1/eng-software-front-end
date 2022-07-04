@@ -53,10 +53,16 @@ export const dashboardItems = [
     permissoes: ["funcionario"],
   },
   {
-    nome: "Logs do Sistema",
-    link: "logs",
-    icon: "bi-card-text",
-    permissoes: ["coordenador"],
+    nome: "Solicitar Validação",
+    link: "solicitarvalidacao",
+    icon: "bi-journal-arrow-up",
+    permissoes: ["todos"],
+  },
+  {
+    nome: "Auditoria",
+    link: "auditoria",
+    icon: "bi-person-workspace",
+    permissoes: ["todos"],
   },
   { nome: "Logout", link: "logout", icon: "bi-power", permissoes: ["todos"] },
 ];

@@ -1,14 +1,4 @@
 function Table(props) {
-  if (!props.rows.length) {
-    return (
-      <>
-        <p className="h4 title-2 mt-5"> {props.tableName} </p>
-
-        <table className="table"></table>
-      </>
-    );
-  }
-
   const attributes = Object.keys(props.rows[0]);
   const heads = ["#", ...attributes, "Ações"];
 
