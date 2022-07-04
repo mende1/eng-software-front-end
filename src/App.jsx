@@ -29,8 +29,11 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/cadastrousuario" element={<CadastroUsuario />} />
-        <Route path="/cadastrocurso" element={<CadastroCurso />} />
+        <Route path="/editarusuario/:id" element={<EditarUsuario />} />
+        <Route path="/cadastrocurso/:id" element={<CadastroCurso />} />
+        <Route path="/editarcurso/:id" element={<EditarCurso />} />
         <Route path="/cadastroinstituicao" element={<CadastroInstituicao />} />
+        <Route path="/editarinstituicao" element={<EditarInstituicao />} />
         <Route path="/usuarios" element={<Usuarios />} />
         <Route path="/instituicoes" element={<Instituicoes />} />
         <Route path="/cursos" element={<Cursos />} />
@@ -39,9 +42,6 @@ function App() {
         <Route path="/log" element={<Log />} />
         <Route path="/auditoria" element={<Auditoria />} />
         <Route path="/solicitarvalidacao" element={<SolicitarValidacao />} />
-        <Route path="/editarcurso" element={<EditarCurso />} />
-        <Route path="/editarusuario" element={<EditarUsuario />} />
-        <Route path="/editarinstituicao" element={<EditarInstituicao />} />
         <Route path="/recuperarsenha" element={<RecuperarSenha />} />
         <Route path="/verificaridentidade" element={<VerificarIdentidade />} />
         <Route path="/alterarsenha" element={<AlterarSenha />} />

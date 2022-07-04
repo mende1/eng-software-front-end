@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom";
+import api from "../services/api";
+
 function TableUser(props) {
+  const navigate = useNavigate();
+
   if (!props.rows.length) {
     return (
       <>
@@ -7,6 +12,23 @@ function TableUser(props) {
         <table className="table"></table>
       </>
     );
+  }
+
+  async function handleDelete(event) {
+    event.preventDefault();
+    try {
+      await api.delete(`/users/${event.target.id}`);
+      alert("Usuário deletado com sucesso.");
+      window.location.reload();
+    } catch (error) {
+      alert("Ocorreu um erro ao deletar o usuário. Tente novamente.");
+    }
+  }
+
+  function handleEdit(event) {
+    event.preventDefault();
+
+    navigate(`/editarusuario/${event.target.id}`);
   }
 
   const heads = ["#", "Nome", "Email", "CPF", "Ações"];
@@ -26,8 +48,18 @@ function TableUser(props) {
       <td key={2}>{user["cpf"]}</td>
 
       <td>
-        <i className="bi bi-pencil-square mx-2"></i>
-        <i className="bi bi-x-lg"></i>
+        <button
+          className="bi bi-pencil-square mx-2"
+          id={user.id}
+          onClick={handleEdit}
+          style={{ border: "none", padding: "0", color: "#59836A" }}
+        ></button>
+        <button
+          className="bi bi-x-lg"
+          id={user.id}
+          onClick={handleDelete}
+          style={{ border: "none", padding: "0", color: "#FF0000" }}
+        ></button>
       </td>
     </tr>
   ));

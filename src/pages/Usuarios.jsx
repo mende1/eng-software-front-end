@@ -28,8 +28,6 @@ function Usuarios() {
       usersResponse.data.forEach((user) => {
         const role = user.role;
 
-        console.log(role);
-
         switch (role) {
           case "funcionario":
             setFuncionarios((previousState) => [...previousState, user]);

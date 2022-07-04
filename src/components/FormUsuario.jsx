@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../services/api";
 import { getRoleOfUser } from "../services/auth";
 
-function FormUsuario() {
+function FormUsuario(props) {
   const [userRole, setUserRole] = useState("");
 
   useEffect(() => {
@@ -65,8 +65,17 @@ function FormUsuario() {
     };
 
     try {
-      await api.post("/users", data);
-      setSuccessMessage("Usuário cadastrado com sucesso.");
+      const message = props.editar
+        ? "Usuário editado com sucesso."
+        : "Usuário cadastrado com sucesso";
+
+      if (props.editar) {
+        await api.patch(`/users/${props.userID}`, data);
+      } else {
+        await api.post("/users", data);
+      }
+
+      setSuccessMessage(message);
       clearInputs();
     } catch (error) {
       setErrorMessage("Ocorreu um erro, tente novamente.");
@@ -90,7 +99,9 @@ function FormUsuario() {
         onSubmit={handleSubmit}
         className="container forms shadow mt-3 form"
       >
-        <p className="h3 title-2">Cadastro de Usuário</p>
+        <p className="h3 title-2">
+          {props.editar ? "Editar Usuário" : "Cadastro de Usuário"}
+        </p>
         <div className="mb-3">
           <label htmlFor="user-type" className="form-label">
             Tipo de Usuário
@@ -211,7 +222,7 @@ function FormUsuario() {
           />
         </div>
         <button type="submit" className="btn-1 btn btn-primary mb-3">
-          Cadastrar
+          {props.editar ? "Editar" : "Cadastrar"}
         </button>
         <div className="pb-3 text-danger font-weight-bold">
           {errorMessage?.length ? errorMessage : ""}
