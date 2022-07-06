@@ -21,6 +21,7 @@ function FormUsuario(props) {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [cpf, setCPF] = useState("");
+  const [institutionId, setInstitutionId] = useState(1);
 
   function handleChangeRole(event) {
     setRole(event.target.value);
@@ -43,6 +44,9 @@ function FormUsuario(props) {
   function handleChangeCPF(event) {
     setCPF(event.target.value);
   }
+  function handleChangeInstitutionId(event) {
+    setInstitutionId(event.target.value);
+  }
 
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -62,6 +66,7 @@ function FormUsuario(props) {
       phone: phone,
       cpf: cpf,
       role: role,
+      institution_id: institutionId,
     };
 
     try {
@@ -90,7 +95,19 @@ function FormUsuario(props) {
     setPassword("");
     setPhone("");
     setCPF("");
+    setInstitutionId(1);
   }
+
+  const [institutions, setInstitutions] = useState([]);
+
+  useEffect(() => {
+    async function fetchInstitutions() {
+      const response = await api.get("institutions");
+      setInstitutions(response.data);
+    }
+
+    fetchInstitutions();
+  }, []);
 
   return (
     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
@@ -220,6 +237,25 @@ function FormUsuario(props) {
             onChange={handleChangeCPF}
             required
           />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="user-type" className="form-label">
+            Instituição
+          </label>
+          <select
+            onChange={handleChangeInstitutionId}
+            className="form-select"
+            aria-label="Instituição"
+            id="course-institution"
+            name="course-institution"
+            value={institutionId}
+          >
+            {institutions.map((institution, index) => (
+              <option value={institution.id} key={index}>
+                {institution.name}
+              </option>
+            ))}
+          </select>
         </div>
         <button type="submit" className="btn-1 btn btn-primary mb-3">
           {props.editar ? "Editar" : "Cadastrar"}

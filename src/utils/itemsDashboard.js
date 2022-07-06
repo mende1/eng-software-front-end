@@ -39,18 +39,21 @@ export const dashboardItems = [
     link: "cadastroinstituicao",
     icon: "bi-building",
     permissoes: ["dirigente"],
+    instituicao: "validadora",
   },
   {
     nome: "Validar Diploma",
     link: "validarDiploma",
     icon: "bi-journal-bookmark-fill",
     permissoes: ["funcionario"],
+    instituicao: "validadora",
   },
   {
     nome: "Solicitar Validação",
     link: "solicitarvalidacao",
     icon: "bi-journal-arrow-up",
-    permissoes: ["todos"],
+    permissoes: ["funcionario"],
+    instituicao: "parceira",
   },
   {
     nome: "Auditoria",

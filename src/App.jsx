@@ -15,9 +15,6 @@ import SolicitarValidacao from "./pages/SolicitarValidacao";
 import EditarCurso from "./pages/EditarCurso";
 import EditarUsuario from "./pages/EditarUsuario";
 import EditarInstituicao from "./pages/EditarInstituicao";
-import RecuperarSenha from "./pages/RecuperarSenha";
-import VerificarIdentidade from "./pages/VerificarIdentidade";
-import AlterarSenha from "./pages/AlterarSenha";
 import Dashboard from "./pages/Dashboard";
 import { Logout } from "./pages/Logout";
 
@@ -42,9 +39,6 @@ function App() {
         <Route path="/log" element={<Log />} />
         <Route path="/auditoria" element={<Auditoria />} />
         <Route path="/solicitarvalidacao" element={<SolicitarValidacao />} />
-        <Route path="/recuperarsenha" element={<RecuperarSenha />} />
-        <Route path="/verificaridentidade" element={<VerificarIdentidade />} />
-        <Route path="/alterarsenha" element={<AlterarSenha />} />
       </Routes>
     </BrowserRouter>
   );

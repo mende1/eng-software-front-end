@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import api from "../services/api";
 
 function FormInstituicao(props) {
@@ -8,6 +8,7 @@ function FormInstituicao(props) {
   const [state, setState] = useState("");
   const [MEC, setMEC] = useState("");
   const [maintainer, setMaintainer] = useState("");
+  const [validatorID, setValidatorID] = useState(0);
 
   function handleChangeName(event) {
     setName(event.target.value);
@@ -44,6 +45,7 @@ function FormInstituicao(props) {
       state,
       MEC,
       maintainer,
+      type: "PartnerInstitution",
     };
 
     try {
@@ -54,7 +56,7 @@ function FormInstituicao(props) {
       if (props.editar) {
         await api.patch(`/institutions/${props.institutionID}`, data);
       } else {
-        await api.post("/institutions", data);
+        await api.post("/institutions/${id}/partner", data);
       }
 
       setSuccessMessage(message);
@@ -73,6 +75,16 @@ function FormInstituicao(props) {
     setMEC("");
     setMaintainer("");
   }
+
+  useEffect(() => {
+    async function fetchValidorID() {
+      const response = await api.get("/auth/profile");
+
+      setValidatorID(response.data.institution_id);
+    }
+
+    fetchValidorID();
+  }, []);
 
   return (
     <form
