@@ -59,7 +59,7 @@ export const dashboardItems = [
     nome: "Auditoria",
     link: "auditoria",
     icon: "bi-person-workspace",
-    permissoes: ["coordenador"],
+    permissoes: ["funcionario"],
   },
   { nome: "Logout", link: "logout", icon: "bi-power", permissoes: ["todos"] },
 ];

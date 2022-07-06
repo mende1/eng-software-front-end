@@ -1,28 +1,36 @@
+import { useEffect, useState } from "react";
 import DashboardComponent from "../components/DashboardComponent";
-import Table from "../components/Table";
+import TableAuditoria from "../components/TableAuditoria";
+import api from "../services/api";
 
-// Somente para futuros auditores
 function Auditoria() {
-  // Variaveis do Back-end
+  const [diplomas, setDiplomas] = useState([]);
 
-  const validacoesDiploma = [
-    { Data: "11/02/2021", Requerente: "João Gabriel", Funcionario: "Pedro" },
-    { Data: "11/02/2021", Requerente: "João Gabriel", Funcionario: "Pedro" },
-    { Data: "11/02/2021", Requerente: "João Gabriel", Funcionario: "Pedro" },
-    { Data: "11/02/2021", Requerente: "João Gabriel", Funcionario: "Pedro" },
-  ];
+  useEffect(() => {
+    async function fetchDiplomas() {
+      const response = await api.get("/diploma");
 
-  // ********************************************************************************************
+      const data = [];
 
-  const actions = <i className="bi bi-download"> </i>;
+      response.data.map((diploma) => {
+        if (diploma.status === "Aprovado") {
+          data.push(diploma);
+        }
+      });
+      console.log(data);
+      setDiplomas(data);
+    }
+
+    fetchDiplomas();
+  }, []);
 
   return (
     <div className="container-fluid">
       <div className="row">
         <DashboardComponent />
         <div id="main">
-          <p className="h3 title-2">Validações de Diploma</p>
-          <Table rows={validacoesDiploma} tableName="" actions={actions} />
+          <p className="h3 title-2 mt-3">Validações de Diploma</p>
+          <TableAuditoria rows={diplomas} tableName="" />
         </div>
       </div>
     </div>

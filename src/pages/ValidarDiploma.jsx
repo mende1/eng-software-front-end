@@ -1,26 +1,29 @@
+import { useEffect, useState } from "react";
 import DashboardComponent from "../components/DashboardComponent";
 import Table from "../components/Table";
+import TableDiploma from "../components/TableDiploma";
+import api from "../services/api";
 
 function ValidarDiploma() {
-  // Variaveis do Back-end
+  const [diplomas, setDiplomas] = useState([]);
 
-  const solicitacoesDiploma = [
-    { Requerente: "João Gabriel", Data: "11/02/2021" },
-    { Requerente: "João Gabriel", Data: "11/02/2021" },
-    { Requerente: "João Gabriel", Data: "11/02/2021" },
-    { Requerente: "João Gabriel", Data: "11/02/2021" },
-    { Requerente: "João Gabriel", Data: "11/02/2021" },
-  ];
+  useEffect(() => {
+    async function fetchDiplomas() {
+      const response = await api.get("/diploma");
 
-  // ********************************************************************************************
+      const data = [];
 
-  const actions = (
-    <div>
-      <i className="bi bi-download"> </i>
-      <i className="bi bi-check-lg verde"></i>{" "}
-      <i className="bi bi-x-lg vermelho"></i>
-    </div>
-  );
+      response.data.map((diploma) => {
+        if (diploma.status === "Em Análise") {
+          data.push(diploma);
+        }
+      });
+
+      setDiplomas(data);
+    }
+
+    fetchDiplomas();
+  }, []);
 
   return (
     <div className="container-fluid">
@@ -28,7 +31,7 @@ function ValidarDiploma() {
         <DashboardComponent />
         <div id="main">
           <p className="h3 title-2">Solicitações de Validação de Diploma</p>
-          <Table rows={solicitacoesDiploma} tableName="" actions={actions} />
+          <TableDiploma rows={diplomas} tableName="" />
         </div>
       </div>
     </div>

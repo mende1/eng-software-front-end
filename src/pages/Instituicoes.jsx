@@ -8,7 +8,7 @@ function Instituicoes() {
 
   useEffect(() => {
     const fetchInstituicoes = async () => {
-      const response = await api.get("institutions");
+      const response = await api.get("/institutions?type=PartnerInstitution");
       setInstituicoes(response.data);
     };
 
